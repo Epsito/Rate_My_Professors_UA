@@ -6,7 +6,7 @@ import time
 
 headers = ["Name","Department","Total Ratings","Overall Quality","Easiness","Hot"]
 #Dictionary of school ids (keys) that map to tuple of school name and number of pages
-colleges = {"1402":("UniversityofArizona",16)}
+colleges = {"1402":("University of Arizona",16)}
 
 for sid in colleges.keys():
     college,pages = colleges[sid]
