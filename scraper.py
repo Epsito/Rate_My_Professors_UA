@@ -6,7 +6,7 @@ import time
 
 headers = ["Name","Department","Total Ratings","Overall Quality","Easiness","Hot"]
 #Dictionary of school ids (keys) that map to tuple of school name and number of pages
-colleges = {"1402":("University of Arizona",16)}
+colleges = {"580":("MIT",16)}
 
 for sid in colleges.keys():
     college,pages = colleges[sid]
@@ -14,7 +14,7 @@ for sid in colleges.keys():
     for i in xrange(1,pages+1):
         response = scraperwiki.scrape("http://www.ratemyprofessors.com/SelectTeacher.jsp?sid=%s&pageNo=%s" % (sid,str(i)))
         time.sleep(5)
-        soup = BeautifulSoup(response)
+        soup = BeautifulSoup(response, "lxml")
         rows = soup.find_all("div",{"class":"entry odd vertical-center"})
         rows.extend(soup.find_all("div",{"class":"entry even vertical-center"}))
         for row in rows:
